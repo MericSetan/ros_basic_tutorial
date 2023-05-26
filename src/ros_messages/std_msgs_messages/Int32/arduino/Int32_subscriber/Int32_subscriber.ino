@@ -6,27 +6,27 @@
 ros::NodeHandle  nh;
 
 // create a message
-std_msgs::Int32 message;
+std_msgs::Int32 received_msg;
 
-// create publisher
-ros::Publisher pub("topic_name", &message);
+// callback function 
+void callback_function(std_msgs::Int32 &msg){
+  received_msg = msg;
+}
+  
+// create subscriber 
+ros::Subscriber<std_msgs::Int32> sub("topic_name", &callback_function);
 
 void setup() {
+ 
   // start node
   nh.initNode();
-  
-  // define publisher
-  nh.advertise(pub);  
+
+  // subscribe topic 
+  nh.subscribe(sub);
+
 }
 
 void loop() {
-  // define message
-  message.data = 10;
-  
-  // publish message
-  pub.publish(&message);
-  
   // update ROS communication
   nh.spinOnce();
-  delay(500);
 }

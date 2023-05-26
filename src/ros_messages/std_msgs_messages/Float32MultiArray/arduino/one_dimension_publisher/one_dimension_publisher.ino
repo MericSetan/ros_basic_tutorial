@@ -1,12 +1,12 @@
 // include roslib and ros messages
 #include <ros.h>
-#include <std_msgs/Int32.h>
+#include <std_msgs/Float32MultiArray.h>>
     
 // create a ros object
 ros::NodeHandle  nh;
 
 // create a message
-std_msgs::Int32 message;
+std_msgs::Float32MultiArray message;
 
 // create publisher
 ros::Publisher pub("topic_name", &message);
@@ -19,14 +19,19 @@ void setup() {
   nh.advertise(pub);  
 }
 
-void loop() {
+void loop() { 
+  // create an float array
+  float float_array[] = {1.2, 4.1, 9.88};
+
   // define message
-  message.data = 10;
-  
+  message.data = float_array;
+  message.data_length = sizeof(float_array) / sizeof(float); // array lenght = 3
+
   // publish message
   pub.publish(&message);
   
   // update ROS communication
   nh.spinOnce();
+  
   delay(500);
 }

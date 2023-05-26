@@ -9,7 +9,7 @@ def callback_function(message):
     print("received message : ",message)
     print("received temperature : ",message.temperature)
 
-    # also youu can print
+    # also you can print
     # message.variance
     # message.header.stamp
     # message.header.frame_id

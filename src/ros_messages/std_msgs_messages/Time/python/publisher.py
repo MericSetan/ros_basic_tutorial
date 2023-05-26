@@ -10,7 +10,7 @@ def Time_publisher_example():
     rospy.init_node("Time_Publisher")
 
     # create publisher object
-    pub = rospy.Publisher("your_topic",Time,queue_size = 10) # topic_name, message_type, queue_size
+    pub = rospy.Publisher("topic_name",Time,queue_size = 10) # topic_name, message_type, queue_size
 
     # create message 
     Time_message = Time()

@@ -1,12 +1,12 @@
 // include roslib and ros messages
 #include <ros.h>
-#include <std_msgs/Int32.h>
+#include <sensor_msgs/Range.h>
     
 // create a ros object
 ros::NodeHandle  nh;
 
 // create a message
-std_msgs::Int32 message;
+sensor_msgs::Range message;
 
 // create publisher
 ros::Publisher pub("topic_name", &message);
@@ -21,12 +21,21 @@ void setup() {
 
 void loop() {
   // define message
-  message.data = 10;
+  message.header.stamp = nh.now();
+  message.header.frame_id = "front_usm";
+
+  // sensor features 
+  message.radiation_type = sensor_msgs::Range::ULTRASOUND; // INFRARED,LASER,ULTRASOUND or UNKNOWN
+  message.field_of_view = 0.261799; // radian 
+  message.min_range = 0.2;
+  message.max_range = 5.0;
+  message.range = 2.4;
   
   // publish message
   pub.publish(&message);
   
   // update ROS communication
   nh.spinOnce();
+  
   delay(500);
 }

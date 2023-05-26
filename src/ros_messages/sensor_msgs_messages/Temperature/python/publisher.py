@@ -37,3 +37,18 @@ if __name__ == '__main__':
         publisher_example()
     except rospy.ROSInterruptException:
         pass
+
+""" 
+rostopic echo /your_topic 
+--out--
+
+header: 
+  seq: 1
+  stamp: 
+    secs: 1685108207
+    nsecs:  95741271
+  frame_id: "battery"
+temperature: 25.0
+variance: 0.0
+
+ """

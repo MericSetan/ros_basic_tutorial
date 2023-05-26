@@ -1,12 +1,12 @@
 // include roslib and ros messages
 #include <ros.h>
-#include <std_msgs/Int32.h>
+#include <sensor_msgs/Temperature.h>
     
 // create a ros object
 ros::NodeHandle  nh;
 
 // create a message
-std_msgs::Int32 message;
+sensor_msgs::Temperature message;
 
 // create publisher
 ros::Publisher pub("topic_name", &message);
@@ -20,13 +20,18 @@ void setup() {
 }
 
 void loop() {
+  
   // define message
-  message.data = 10;
+  message.temperature = 25.5;
+  message.header.stamp = nh.now();
+  message.header.frame_id = "battery";
+  message.variance = 0.1; //default 0.0
   
   // publish message
   pub.publish(&message);
   
   // update ROS communication
   nh.spinOnce();
+  
   delay(500);
 }

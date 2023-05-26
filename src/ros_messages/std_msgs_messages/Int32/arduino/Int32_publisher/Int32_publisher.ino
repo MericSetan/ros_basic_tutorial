@@ -1,6 +1,6 @@
 // include roslib and ros messages
 #include <ros.h>
-#include <std_msgs/Int32.h>
+#include <std_msgs/Int32.h>>
     
 // create a ros object
 ros::NodeHandle  nh;
@@ -21,12 +21,13 @@ void setup() {
 
 void loop() {
   // define message
-  message.data = 10;
+  message.data = 4;
   
   // publish message
   pub.publish(&message);
   
   // update ROS communication
   nh.spinOnce();
+  
   delay(500);
 }
