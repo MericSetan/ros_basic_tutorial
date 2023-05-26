@@ -21,6 +21,9 @@ class PubWithSubClass():
         # create subscriber
         rospy.Subscriber('sub_topic', Int32, self.callback_function)
 
+        # create message
+        self.msg_to_be_publish = String()
+        
         # interaction and listening loop 
         rospy.spin()
     
@@ -29,14 +32,14 @@ class PubWithSubClass():
 
         if sub_message.data > 5:
             # define message to publish
-            msg_to_be_publish = "{} > 5".format(sub_message.data)
+            self.msg_to_be_publish.data = "{} > 5".format(sub_message.data)
             # publish message 
-            self.pub.publish(msg_to_be_publish)
+            self.pub.publish(self.msg_to_be_publish.data)
         else: 
             # define message to publish
-            msg_to_be_publish = "{} <= 5".format(sub_message.data)
+            self.msg_to_be_publish.data = "{} <= 5".format(sub_message.data)
             # publish message 
-            self.pub.publish(msg_to_be_publish)
+            self.pub.publish(self.msg_to_be_publish.data)
 
 
         

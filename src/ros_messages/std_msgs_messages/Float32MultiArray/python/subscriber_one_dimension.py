@@ -2,18 +2,18 @@
 
 #import rospy and messages
 import rospy
-from std_msgs.msg import Int32
+from std_msgs.msg import Float32MultiArray
 
 def callback_function(message):
     print("received message : ",message.data)
 
-def Int32_subscriber_example():
+def Float32MultiArray_subscriber_example():
 
     # start node
-    rospy.init_node("Int32_subscriber_node")
+    rospy.init_node("Float32MultiArray_Subscriber_Node")
 
     # create subscriber
-    rospy.Subscriber('topic_name', Int32, callback_function)
+    rospy.Subscriber('topic_name', Float32MultiArray, callback_function)
 
     # interaction and listening loop 
     rospy.spin()
@@ -22,6 +22,6 @@ def Int32_subscriber_example():
             
 if __name__ == '__main__':
     try:
-        Int32_subscriber_example()
+        Float32MultiArray_subscriber_example()
     except rospy.ROSInterruptException:
         pass

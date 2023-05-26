@@ -27,7 +27,7 @@ class PublisherClass():
 
             for i in range(10):
                 # define your message
-                self.message = i
+                self.message.data = i
 
                 # publish message
                 self.pub.publish(self.message)

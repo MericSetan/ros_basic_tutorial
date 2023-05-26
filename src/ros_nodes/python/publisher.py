@@ -22,7 +22,7 @@ def publisher_example():
 
         for i in range(10):
             # define your message
-            message = i
+            message.data = i
 
             # publish message
             pub.publish(message)
