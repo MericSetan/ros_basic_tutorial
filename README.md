@@ -40,11 +40,11 @@ içerisinde belirtilmiştir. ROS Noetic ile çalışılmış olup diğer ROS sü
   ! Henüz ROS'ta yeniyseniz mutlaka  http://wiki.ros.org/Documentation ve http://wiki.ros.org/ROS/Tutorials ziyaret edin.
   
   
-  # İlerleyen süreçlerde özel olarak eklenecek içerikler:
+  # İlerleyen süreçlerde ayrı olarak eklenecek içerikler:
   * Custom ROS Sessages Example
   * Custom ROS Services Example
   * Custom ROS Actions Example
 <br/>Şeklinde olup daha detaylı olarak anlatım yapacağım. 
-<br/> Çok yakında ROS2 örnekleri de geliyor.
+<br/>Çok yakında ROS2 örnekleri de geliyor.
 <br/>İyi Çalışmalar... 
   
